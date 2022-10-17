@@ -1,0 +1,41 @@
+{
+  "name": "closed-captions",
+  "version": "1.0.0",
+  "description": "A plugin for Vatom Spaces.",
+  "main": "src/index.js",
+  "scripts": {
+    "clean": "rimraf ./dist && rimraf ./resources/ui-build",
+    "build": "npm run clean && npm run build:panel && npm run build:plugin",
+    "build:plugin": "webpack",
+    "build:panel": "webpack --env ui=panel",
+    "publish": "npm run build && npx -p @vatom/cli vatom plugin publish",
+    "watch:plugin": "webpack --watch",
+    "watch:panel": "webpack --env ui=panel --watch",
+    "start:server": "http-server ./dist -p 9000 --cors -c-1",
+    "start": "npm run clean && concurrently --kill-others npm:watch:plugin npm:watch:panel npm:start:server"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.1",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-proposal-decorators": "^7.19.1",
+    "@babel/preset-env": "^7.19.1",
+    "@babel/preset-react": "^7.18.6",
+    "babel-loader": "^8.2.5",
+    "concurrently": "^7.4.0",
+    "copy-webpack-plugin": "^10.2.4",
+    "core-js": "^3.21.1",
+    "css-loader": "^6.7.1",
+    "extract-loader": "^5.1.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "http-server": "^14.1.1",
+    "rimraf": "^3.0.2",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

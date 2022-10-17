@@ -1,0 +1,14 @@
+{
+  "id": "closed-captions",
+  "name": "Closed Captions",
+  "version": "1.0.0",
+  "beta": true,
+  "description": "Enables option to show closed captions for user audio",
+  "longDescription": "Enables the capability to display closed captions for audio sent or recieved through a user's microphone",
+  "configuration": "Install the plugin",
+  "category": "Accessibility",
+  "businessId": "''",
+  "price": 0,
+  "releaseNotes": "''",
+  "entrypoint": ""
+}
